@@ -42,12 +42,19 @@ print("%d sekund je enako %d ur, %d minut, in %d sekund"%(vse_sekunde, ure, minu
 # Napišite program, v katerega vnesete polmer kroga. Program naj izračuna obseg in ploščino ter z uporabo f-stringa izpiše rezultat v naslednji obliki:
 # primer izpisa: Polmer kroga je 5 cm, obseg kroga je 31.42 cm, ploščina kroga pa je 78.5 cm2.
 
-
+polmer = int(input("Vpisi polmer kroga: "))
+obseg = 2*3.14*polmer
+ploscina = (3.14*polmer)**2
+print(f"Polmer kroga je {polmer} cm, obseg kroga je {obseg} cm, ploscina kroga pa {ploscina} cm2.")
 
 # 5. naloga
 # Napišite program, ki z uporabo f-stringa izpiše trenutni datum in uro v naslednji obliki:
 # primer izpisa: Danes je 1. 9. 2025, ura je 13:45.
 # *uporabite datetime.now()
+
+from datetime import datetime
+cas = datetime.now()
+print(f"Danes je {cas.day}. {cas.month}. {cas.year}, ura je {cas.hour}:{cas.minute}.")
 
 
 
@@ -55,6 +62,13 @@ print("%d sekund je enako %d ur, %d minut, in %d sekund"%(vse_sekunde, ure, minu
 # Napišite program, ki izračuna hipotenuzo pravokotnega trikotnika z danima katetama. Rezultat izpišite z uporabo metode .format() v naslednji obliki:
 # primer izpisa: Pri katetah a = 3 in b = 4 je hipotenuza enaka 5.00.
 
+import math
+
+kateta1 = int(input("Vpisi dolzino katete 1: "))
+kateta2 = int(input("Vpisi dolzino katete 2: "))
+
+hipotenuza = math.sqrt(kateta1**2+kateta2**2)
+print("Pri katetah a = {} in b = {} je hipotenuza enaka {}.".format(kateta1,kateta2,hipotenuza))
 
 
 # 7. naloga
@@ -67,7 +81,7 @@ print("%d sekund je enako %d ur, %d minut, in %d sekund"%(vse_sekunde, ure, minu
 
 
 # 8. naloga
-# Napišite program, ki prebere dve kompleksni števili in s pomočjo operatorja % izpiše njuno vsoto, razliko in produkt v naslednji obliki:
+# Napišite program, ki prebere dve kompleksni števili in s pomočjo operatorja % i  zpiše njuno vsoto, razliko in produkt v naslednji obliki:
 # primer izpisa za kompleksni števili 2+3j in 1-1j:
 # Vsota: 3+2j  
 # Razlika: 1+4j  
@@ -87,6 +101,12 @@ print("%d sekund je enako %d ur, %d minut, in %d sekund"%(vse_sekunde, ure, minu
 # Pri tem si pomagajte tudi s parametroma end in sep.
 # primer izpisa: Vsota števil 4, 7, 1, 3 je 15.
 
+seznam = [4,5,76,1]
+print("Vsota stevil ",end="")
+print(str(seznam[0]),end="")
+for i in range(1,len(seznam)):
+    print(",",str(seznam[i]),end="")
+print(" ", "je",sum(seznam)+".")
 
 
 # 11. naloga
@@ -95,6 +115,14 @@ print("%d sekund je enako %d ur, %d minut, in %d sekund"%(vse_sekunde, ure, minu
 # stevilke = [10, 15, 23, 42, 55] # začetni seznam
 # deljitelj = 5 #določen delitelj
 # deljiva_st = [10, 15, 55] # rešitev vaše kode
+
+seznam2 = [10, 15, 23, 42, 55]
+delitelj = int(input("Vpisi delitej za seznam: "))
+deljiva_st = []
+for i in range(len(seznam2)):
+    if seznam2[i]%delitelj == 0:
+        deljiva_st.append(seznam2[i])
+print(deljiva_st)
 
 
 
@@ -106,6 +134,21 @@ print("%d sekund je enako %d ur, %d minut, in %d sekund"%(vse_sekunde, ure, minu
 # [6, 8]
 # [10, 12]
 
+a = []
+b = []
+for i in range(4):
+    a.append(int(input("Vpisi element seznama a: ")))
+for i in range(4):
+    b.append(int(input("Vpisi element seznama b: ")))
+vsota_a = []
+vsota_a.append(int(a[0])+int(b[0]))
+vsota_a.append(int(a[1])+int(b[1]))
 
+vsota_b = []
+vsota_b.append(int(a[2])+int(b[2]))
+vsota_b.append(int(a[3])+int(b[3]))
+
+print(vsota_a)
+print(vsota_b)
 
 # Vse naloge nadgradite tako, da se rezultati zapišejo v datoteko »rešitve_vaja_01.txt«. Po vsaki rešitvi naj bo ena vrstica prazna).
