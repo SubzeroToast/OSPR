@@ -236,18 +236,41 @@ def magicen_kvadrat(seznam):
             return "Ni magicen kvadrat!"
         if not(rezultat == seznam[j][0]+seznam[j][1]+seznam[j][2]):
             return "Ni magicen kvadrat!"
-    for i in range(2):
-        if not(rezultat == seznam[0][j]+seznam[1][j]+seznam[2][j]):
-            return "Ni magicen kvadrat!"
+    if not(rezultat == seznam[0][0]+seznam[1][1]+seznam[2][2]):
+        return "Ni magicen kvadrat!"
+    if not(rezultat == seznam[0][2]+seznam[1][1]+seznam[2][0]):
+        return "Ni magicen kvadrat!"
+    return "Je magicen kvadrat!"
+
+print(magicen_kvadrat(seznam))
 
 
 # 9. naloga
-# Napišite program, ki pretvori dano število med 1 in 99 b besedo. 
+# Napišite program, ki pretvori dano število med 1 in 99 v besedo. 
 # Primeri:
 # 456 – štiri sto šestinpetdeset
 # 123 – sto triindvajset
 # Nasvet: Za vsako številko (1-9), desetico (10-90) in posebne primere (11-19) uporabite ločene if-else pogoje za pravilno sestavljanje besede.
 
+stevilo = input("Vpisi stevilo za izpis v besedah [1-99]: ")
+enice = ["ena","dva","tri","stiri","pet","sest","sedem","osem","devet"]
+desetice = ["deset","dvajset","trideset","stirideset","petdeset","sestdeset","sedemdeset","osemdeset","devetdeset"]
+najst = ["enajst","dvanajst","trinajst","stirinajst","petnajst","sestnajst","sedemnajst","osemnajst","devetnajst"]
+
+def izpis(stevilo):
+    if len(stevilo) == 1:
+        return enice[int(stevilo)-1]
+    elif len(stevilo) == 2:
+        if int(stevilo)%10 == 0:
+            return desetice[int(stevilo)//10-1]
+        elif int(stevilo) > 10 and int(stevilo) < 20:
+            return najst[int(stevilo[1])-1]
+        else:
+            return enice[int(stevilo[1])-1] + "in" + desetice[int(stevilo[0])-1]
+    else:
+        return "Napaka pri vnosu."
+    
+print(izpis(stevilo))
 
 # 10.	naloga
 # Napišite program, ki sprejme dva časa v obliki ur in minut in izračuna razliko med njima. Program naj preveri še, če je drugi čas pred prvim in v tem primeru izpiše napako.
