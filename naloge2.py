@@ -188,6 +188,7 @@ dan = int(input("Vpisi dan: "))
 mesec = int(input("Vpisi mesec: "))
 leto = int(input("Vpisi leto: "))
 tocke = 0
+mesci = [31,28,31,30,31,30,31,31,30,31,30,31]
 if leto%4 == 0:
     if leto%100 == 0:
         if leto%400 == 0:
@@ -202,14 +203,42 @@ else:
 if mesec == 2:
     if not(prestopno):
         if dan > 0 and dan < 29:
+            pass
+        else:
+            print("Neveljaven vnos")
+            quit()
     if prestopno:
         if dan > 0 and dan < 30:
-            tocke += 1
-
-mesci = [31,28,31,30,31,30,31,31,30,31,30,31]
+            pass
+        else:
+            print("Neveljaven vnos")
+            quit()
+elif mesec < 13 and mesec > 0:  
+    if dan <= mesci[mesec-1]:
+        pass
+    else:
+        print("Neveljaven vnos")
+        quit()      
+else:
+    print("Neveljaven vnos")
+    quit()
+print("Veljaven datum!")
 # 8. naloga
 # Napiši funkcijo magicen_kvadrat(sez), ki prejeme 2D seznam velikosti 3x3 in vrne True, če predstavlja 2D seznam magičen kvadrat in False, če ne. Magičen kvadrat je matrika, kjer je vsota števil v vsaki vrstici, stolpcu in diagonalah enaka. 
 # Primer magicen_kvadrat([[2, 7, 6], [9, 5, 1], [4, 3, 8]]) vrne True
+
+seznam = [[2, 7, 6], [9, 5, 1], [4, 3, 8]]
+
+def magicen_kvadrat(seznam):
+    rezultat = seznam[0][0]+seznam[1][0]+seznam[2][0]
+    for j in range(3):
+        if not(rezultat == seznam[0][j]+seznam[1][j]+seznam[2][j]):
+            return "Ni magicen kvadrat!"
+        if not(rezultat == seznam[j][0]+seznam[j][1]+seznam[j][2]):
+            return "Ni magicen kvadrat!"
+    for i in range(2):
+        if not(rezultat == seznam[0][j]+seznam[1][j]+seznam[2][j]):
+            return "Ni magicen kvadrat!"
 
 
 # 9. naloga
@@ -239,4 +268,3 @@ mesci = [31,28,31,30,31,30,31,31,30,31,30,31]
 # Napišite funkcijo pretvorba(rimsko), ki prejme rimsko število in ga pretvori v arabsko ter ta rezultat vrne. Rimske številke se zapišejo s simboli: I (1), V (5), X(10), L (50), C (100), D (500), M (1000). Pazite še na posebnosti, kjer je potrebno vrednosti odšteti (IV = 4, IX = 9).
 # Primer: pretvorba('MCMXCIV) vrne 1994
 # """
-
