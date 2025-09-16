@@ -269,12 +269,24 @@ def izpis(stevilo):
             return enice[int(stevilo[1])-1] + "in" + desetice[int(stevilo[0])-1]
     else:
         return "Napaka pri vnosu."
-    
+
 print(izpis(stevilo))
 
 # 10.	naloga
 # Napišite program, ki sprejme dva časa v obliki ur in minut in izračuna razliko med njima. Program naj preveri še, če je drugi čas pred prvim in v tem primeru izpiše napako.
-
+ura1 = int(input("Vpisi uro: "))
+minuta1 = int(input("Vpisi minuto: "))
+ura2 = int(input("Vpisi uro 2: "))
+minuta2 = int(input("Vpisi minuto 2: "))
+if not(ura2 <= ura1 and minuta2 < minuta1):
+    razlika_ur = ura2 - ura1
+    razlika_minut = minuta2 - minuta1
+    if razlika_minut < 0:
+        razlika_ur -= 1
+        razlika_minut += 60
+    print(f"Razlika je {razlika_ur} ur in {razlika_minut} minut.")
+else:
+    print("Napaka, ura2 je pred uro1.")
 
 # 11. naloga
 # Napišite funkcijo veljavna_bančna(stevilka_bancne), ki preveri, ali je podana številka kreditne kartice veljavna in to tudi vrne v obliki True/False. Uporabite osnovno validacijo Luhnovega algoritma:
@@ -286,6 +298,23 @@ print(izpis(stevilo))
 # veljavna_bancna(79927398713) vrne True
 # veljavna_bancna(1234567812345670) vrne False
 
+kartica = "79927398713"
+def veljavna_bancna(kartica):
+    kartica = kartica[::-1]
+    novo = []
+    for i in range(len(kartica)):
+        if i%2 == 1:    
+            kartica_racun = int(kartica[i])*2
+        else:
+            kartica_racun = kartica[i]
+        if int(kartica_racun) > 9:
+            kartica_racun -= 9    
+        novo.append(int(kartica_racun))
+    if sum(novo)%10 == 0:
+        return True
+    else:
+        return False
+print(veljavna_bancna(kartica))
 
 # 12.	naloga
 # Napišite funkcijo pretvorba(rimsko), ki prejme rimsko število in ga pretvori v arabsko ter ta rezultat vrne. Rimske številke se zapišejo s simboli: I (1), V (5), X(10), L (50), C (100), D (500), M (1000). Pazite še na posebnosti, kjer je potrebno vrednosti odšteti (IV = 4, IX = 9).
