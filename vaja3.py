@@ -70,10 +70,24 @@ print(prvo_vecje_prastevilo(109))
 #  ****
 # *****
 
+n = int(input("Vpisi n: "))
+for i in range(n):
+    for j in range(n-i):
+        print(" ",end="")
+    for k in range(i+1):
+        print("*",end="")
+    print()
+
 
 # Naloga 6. Napišite funkcijo Caesarjeva_sifra(niz, n), ki izvede Caesarjevo šifro nad danim nizom. Uporabnik vnese niz in število, s katerim naj se črke rotirajo (premaknejo po abecedi). Program naj rotira črke v nizu, ohrani pa presledke in ločila.
 # Primer: Caesarjeva_sifra('hello world', 3) vrne 'khoor zruog'
 
+def caesarjeva_sifra(niz, n):
+    niz2=""
+    for i in range(len((niz))):
+        niz2 += chr(ord(niz[i])+n)
+    print(niz2)
+caesarjeva_sifra("a",3)
 
 # Naloga 7. Napišite funkcijo mediana(sez), ki poišče mediano danega seznama števil, vendar brez uporabe vgrajene funkcije sort(). Poiščite mediano s pomočjo zanke in iskanja minimumov in maksimumov.
 # Primer: mediana[7, 1, 3, 5, 9] vrne 5
