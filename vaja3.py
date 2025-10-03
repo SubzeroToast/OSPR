@@ -92,13 +92,21 @@ caesarjeva_sifra("a",3)
 # Naloga 7. Napišite funkcijo mediana(sez), ki poišče mediano danega seznama števil, vendar brez uporabe vgrajene funkcije sort(). Poiščite mediano s pomočjo zanke in iskanja minimumov in maksimumov.
 # Primer: mediana[7, 1, 3, 5, 9] vrne 5
 
+elementi = [1,1,1,1,1,1,5,3,7,6,4]
+print(list(set(elementi))[len(list(set(elementi)))//2])
+
 
 # Naloga 8. Napišite funkcijo odstrani_podvojene(sez), ki iz danega seznama odstrani podvojene elemente.
 # Primer: odstrani_podvojene([1, 2, 2, 3, 4, 4, 5] vrne [1, 2, 3, 4, 5]
 
+def odstrani_podvojene(seznam):
+    print(list(set(seznam)))
+odstrani_podvojene([1, 2, 2, 3, 4, 4, 5])
+
 
 # Naloga 9. Napišite funkcijo najdaljse_podzaporedje(sez), ki najde najdaljše naraščajoče podzaporedje v danem seznamu števil.
 # Primer: sez = [3, 10, 2, 1, 20] vrne [3, 10, 20]
+
 
 
 # Naloga 10. Napišite funkcijo prastevila(n), ki z uporabo Eratostenovega sita poišče vsa praštevila do števila n. Eratostenovo sito je algoritem, ki uporablja seznam za sledenje številom, ki so bila prečrtana kot deljiva.
