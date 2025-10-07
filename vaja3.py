@@ -107,7 +107,23 @@ odstrani_podvojene([1, 2, 2, 3, 4, 4, 5])
 # Naloga 9. Napišite funkcijo najdaljse_podzaporedje(sez), ki najde najdaljše naraščajoče podzaporedje v danem seznamu števil.
 # Primer: sez = [3, 10, 2, 1, 20] vrne [3, 10, 20]
 
-
+def najdaljse_podzaporedje(sez):
+    zaporedje = 0
+    naj_zaporedje = 0
+    zacetek = 0
+    for i in range(len(sez)):
+        if sez>[i] > sez[i-1]:
+            zaporedje += 1
+        else:
+            if zaporedje > naj_zaporedje:
+                naj_zaporedje = zaporedje
+                zacetek = sez[i]
+    return zacetek
+sez = [3,4,5,1,6,7,8,9,19,33,5]
+prejsnji = sez[najdaljse_podzaporedje(sez)]
+for i in range(najdaljse_podzaporedje(sez),len(sez)+1):
+    prejsnji = 
+    if 
 
 # Naloga 10. Napišite funkcijo prastevila(n), ki z uporabo Eratostenovega sita poišče vsa praštevila do števila n. Eratostenovo sito je algoritem, ki uporablja seznam za sledenje številom, ki so bila prečrtana kot deljiva.
 # Primer: n = 30 vrne [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
