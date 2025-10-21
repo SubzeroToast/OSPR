@@ -40,10 +40,27 @@ print(uredi_po_zadnji_crki(['jabolko', 'kivi', 'banana', 'breskev']))
 # Primer:
 # uredi_in_filtriraj([3, 1, 9, 1, 5, 4, 2], 3) vrne [4, 5, 9]
 
+def uredi_in_filtriraj(seznam, meja):
+    sez2 = []
+    for i in seznam:
+        if i > meja:
+            sez2.append(i)
+    return sez2[::-1]
+print(uredi_in_filtriraj([3, 1, 9, 1, 5, 4, 2], 3))
+
 # 4. Naloga
 # Napišite funkcijo uredi_po_max(seznam), ki prejme ugnezden seznam in ga uredi glede na največjo vrednost v vsakem ugnezdenem seznamu.
 # Primer:
 # uredi_po_max([[3, 1], [7, 5, 8], [2, 9]] vrne [[3, 1], [7, 5, 8], [2, 9]]
+
+def najvecji(sez):
+    return max(sez)
+
+def uredi_po_max(seznam):
+    return sorted(seznam, key=najvecji)
+
+seznam = [[2, 9], [3, 1], [7, 5, 8]]
+print(uredi_po_max(seznam))
 
 # 5. Naloga
 # Napišite funkcijo uredi_2D(seznam), ki prejme dvodimenzionalni (ugnezdeni) seznam in uredi vsako vrstico posebej po naraščajočem vrstnem redu. Funkcija naj vrne nov urejen seznam.
@@ -75,9 +92,18 @@ def uredi_po_povprecju(seznam):
 print(uredi_po_povprecju([[3, 5], [1, 2, 3], [10, 0]]))
 
 # 7. Naloga
-# Napišite funkcijo poisci_element(seznam, element), ki preveri, ali se element nahaja v padajoče urejenem seznamu. V kolikor se element nahaja v seznamu naj funkcija vrne mesto, kjer se le-ta nagaja, sicer pa naj vrne -1.
+# Napišite funkcijo poisci_element(seznam, element), ki preveri, ali se element nahaja v padajoče urejenem seznamu. V kolikor se ele2ment nahaja v seznamu0 naj funkcija vrne mesto, kjer se le-ta nagaja, sicer pa naj vrne -1.
 # Primer: 
 # poisci_element([30, 25, 20, 15, 10, 5], 5) vrne 6
+
+def poisci_element(seznam, element):
+    indeks = 1
+    for i in seznam:
+        if i == element:
+            return indeks
+        indeks += 1
+    return -1
+print(poisci_element([30, 25, 20, 15, 10, 5], 5))
 
 # 8. Naloga
 # Napišite funkcijo poisci_palindrome(niz), ki prejme niz dolžine vsaj 2 in poišče vse palindrome v njem. Funkcija naj vrne seznam vseh palindromov.
