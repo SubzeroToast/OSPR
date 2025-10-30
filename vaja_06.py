@@ -171,3 +171,22 @@ print(najpogostejsi_element([1, 3, 2, 3, 2, 2, 4]))
 # Napišite funkcijo najdaljse_zaporeje(seznam), ki vrne najdaljše naraščajoče zaporedje elementov.
 # Primer:
 # najdaljse_zaporedje([1, 2, 3, 5, 2, 3, 6, 8, 10, 5, 6, 4, 8, 10]) vrne [2, 3, 6, 8, 10]
+
+def najdaljse_zaporedje(seznam):
+    najvecji_seznam = []
+    trenutni_seznam = []
+    najvecji_seznam.append(seznam[0])
+    trenutni_seznam.append(seznam[0])
+    for i in range(1,len(seznam)):
+        trenutni_seznam.append(seznam[i])
+        if seznam[i] <= seznam[i-1]:
+            trenutni_seznam = []
+        else:
+            if len(trenutni_seznam) > len(najvecji_seznam):
+                najvecji_seznam = trenutni_seznam.copy()
+    return najvecji_seznam
+
+
+seznam = [1, 2, 3, 5, 2, 3, 6, 8, 10, 5, 6, 4, 8, 10]
+
+print(najdaljse_zaporedje(seznam))
